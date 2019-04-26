@@ -1,0 +1,18 @@
+{
+  "shapes": [
+    {
+      "@class": "Circle",
+      "radius": 5
+    },
+    {
+      "@class": "Pentagon",
+      "apothem": 3,
+      "side": 2
+    },
+    {
+      "@class": "Rectangle",
+      "length": 20.0,
+      "width": 25.0
+    }
+  ]
+}
