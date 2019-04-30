@@ -12,8 +12,8 @@ import java.util.concurrent.Executors;
 
 public class Driver {
 
-    private static final Logger logger = LogManager.getLogger(Driver.class);
-    private static final Logger comLogger = LogManager.getLogger("com.foo.Bar");
+    //private static final Logger logger = LogManager.getLogger(Driver.class);
+    //private static final Logger comLogger = LogManager.getLogger("com.foo.Bar");
 
     public static void main(String[] args) throws IOException {
 

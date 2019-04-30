@@ -7,13 +7,16 @@ import org.apache.logging.log4j.Logger;
 
 public class Circle extends Shape {
 
-    private Logger logger = LogManager.getLogger(Circle.class);
+    private Logger logger = LogManager.getLogger(Circle.class.getName());
+
+
     private final double PI = 3.1416;
     private double radius;
 
     @JsonCreator
     public Circle(@JsonProperty("radius") double r) {
         this.radius = r;
+
     }
 
     @JsonGetter

@@ -12,23 +12,12 @@ public class RunnableImplementation implements Runnable {
 
     public RunnableImplementation(int tN)
     {
-
         threadNumber = tN;
     }
     public void run() {
-        Canvas canvasWriter = new Canvas();
-        canvasWriter.getShapes().add(new Circle(5.0));
-        canvasWriter.getShapes().add(new Pentagon(3.0, 2.0));
-        canvasWriter.getShapes().add(new Rectangle(5.0D, 5.0));
+
 
         ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
-
-        try {
-            objectMapper.writeValue(new File("C:\\Users\\Mesmer\\IdeaProjects\\Task1_JsonMapping\\src\\main\\java\\JsonDataWriteInto"), canvasWriter);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
         Canvas canvasReader = null;
         try {
@@ -36,9 +25,6 @@ public class RunnableImplementation implements Runnable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
-        logger.info("Thread number: " + threadNumber);
 
         for(Shape s:canvasReader.getShapes()) {
             s.display();
