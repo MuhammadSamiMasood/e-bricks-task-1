@@ -12,6 +12,9 @@
         <Root level="debug" additivity="false">
             <AppenderRef ref="console"/>
         </Root>
+        <Logger name="customLogger" level="TRACE" additivity="false">
+            <AppenderRef ref="console"/>
+        </Logger>
     </Loggers>
 </Configuration>
 

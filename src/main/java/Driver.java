@@ -1,34 +1,35 @@
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.Iterator;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Driver {
 
     private static final Logger logger = LogManager.getLogger(Driver.class);
+    private static final Logger comLogger = LogManager.getLogger("com.foo.Bar");
 
     public static void main(String[] args) throws IOException {
 
-        Canvas canvasWriter = new Canvas();
-        canvasWriter.getShapes().add(new Circle(5.0));
-        canvasWriter.getShapes().add(new Pentagon(3.0, 2.0));
-        canvasWriter.getShapes().add(new Rectangle(5.0D, 5.0));
+       RunnableImplementation r[] = new RunnableImplementation[10];
+       for(int i=0; i<r.length; i++){
+           r[i] = new RunnableImplementation(i+1);
+       }
 
-        ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
-        objectMapper.writeValue(new File("C:\\Users\\Mesmer\\IdeaProjects\\Task1_JsonMapping\\src\\main\\java\\JsonDataWriteInto"), canvasWriter);
+        ExecutorService service = Executors.newFixedThreadPool(2);
 
-        Canvas canvasReader = (Canvas)objectMapper.readValue(new File("C:\\Users\\Mesmer\\IdeaProjects\\Task1_JsonMapping\\src\\main\\java\\jsonData"), Canvas.class);
+       for(int i=0; i<10;i++)
+       {
+           service.execute(r[i]);
+       }
 
 
-        for(Shape s:canvasReader.getShapes()) {
-            s.display();
-            System.out.println();
-        }
 
     }
 }
