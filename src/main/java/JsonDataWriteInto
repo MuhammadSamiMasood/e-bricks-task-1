@@ -1,15 +1,15 @@
 {
   "shapes" : [ {
     "@class" : "Circle",
-    "area" : 78.54,
-    "perimeter" : 31.416
+    "perimeter" : 31.416,
+    "area" : 78.54
   }, {
     "@class" : "Pentagon",
-    "area" : 15.0,
-    "perimeter" : 10.0
+    "perimeter" : 10.0,
+    "area" : 15.0
   }, {
     "@class" : "Rectangle",
-    "area" : 25.0,
-    "perimeter" : 20.0
+    "perimeter" : 20.0,
+    "area" : 25.0
   } ]
 }

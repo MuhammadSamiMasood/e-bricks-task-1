@@ -1,10 +1,15 @@
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Iterator;
 
 public class Driver {
+
+    private static final Logger logger = LogManager.getLogger(Driver.class);
 
     public static void main(String[] args) throws IOException {
 
