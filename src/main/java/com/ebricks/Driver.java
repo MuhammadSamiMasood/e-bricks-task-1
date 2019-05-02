@@ -1,6 +1,7 @@
 package com.ebricks;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import javafx.scene.paint.LinearGradient;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -11,6 +12,7 @@ import java.util.concurrent.Executors;
 
 public class Driver {
 
+    public static Logger logger = LogManager.getRootLogger();
 
     public static void main(String[] args) throws IOException {
 
@@ -18,27 +20,16 @@ public class Driver {
 
         Canvas canvasReader = null;
         try {
-            canvasReader = (Canvas) objectMapper.readValue(new File("C:\\Users\\Mesmer\\IdeaProjects\\Task1_JsonMapping\\src\\main\\java\\com\\ebricks\\JsonData"), Canvas.class);
+            canvasReader = (Canvas) objectMapper.readValue(new File("src\\main\\java\\com\\ebricks\\JsonData"), Canvas.class);
         } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        RunnableImplementation runnableImplementation[] = new RunnableImplementation[canvasReader.getShapes().size()];
-
-        //int i = 0;
-        //for (RunnableImplementation r : runnableImplementation) {
-        //    r = new RunnableImplementation(canvasReader.getShapes().get(i));
-        //    i++;
-        //}
-
-        for (int j = 0; j < runnableImplementation.length; j++) {
-            runnableImplementation[j] = new RunnableImplementation(canvasReader.getShapes().get(j));
+            logger.error(e);
         }
 
         ExecutorService service = Executors.newFixedThreadPool(2);
 
-        for (RunnableImplementation r : runnableImplementation) {
-            service.execute(r);
+        for(Shape shape:canvasReader.getShapes()){
+            RunnableImplementation runnableImplementation = new RunnableImplementation(shape);
+            service.execute(runnableImplementation);
         }
 
         return;
