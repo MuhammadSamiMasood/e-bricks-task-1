@@ -7,6 +7,7 @@ import org.apache.logging.log4j.Logger;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -38,11 +39,17 @@ public class Driver {
 
         //----------------------
 
-        for(Future<String> future:futures){
+        Iterator iterator = futures.iterator();
+        while (iterator.hasNext()){
+            Future<String> future = (Future<String>) iterator.next();
             String string = future.get();
-
             logger.info(string);
         }
+
+        //for(Future<String> future:futures){
+        //    String string =  future.get();
+        //    logger.info(string);
+        //}
 
         return;
 
