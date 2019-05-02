@@ -31,20 +31,20 @@
 
     </Appenders>
     <Loggers>
-        <Root level="error" additivity="false">
+        <Root level="info" additivity="false">
             <AppenderRef ref="console"/>
         </Root>
 
 
-        <Logger name="com.ebricks.Circle" level="info" additivity="false">
+        <Logger name="com.ebricks.task1.Circle" level="info" additivity="false">
 
             <AppenderRef ref="circleAppender"/>
         </Logger>
-        <Logger name="com.ebricks.Rectangle" level="info" additivity="false">
+        <Logger name="com.ebricks.task1.Rectangle" level="info" additivity="false">
 
             <AppenderRef ref="pentagonAppender"/>
         </Logger>
-        <Logger name="com.ebricks.Pentagon" level="info" additivity="false">
+        <Logger name="com.ebricks.task1.Pentagon" level="info" additivity="false">
 
             <AppenderRef ref="rectangleAppender"/>
         </Logger>

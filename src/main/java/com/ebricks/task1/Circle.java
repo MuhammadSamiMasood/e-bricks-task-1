@@ -1,4 +1,4 @@
-package com.ebricks;
+package com.ebricks.task1;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonGetter;
@@ -31,9 +31,16 @@ public class Circle extends Shape {
         return 2 * PI * this.radius;
     }
 
-    public void display() {
-        logger.info("Radius of Circle: " + this.radius);
-        logger.info("Area of Circle: " + this.area());
-        logger.info("Circumference of Circle: " + this.perimeter());
+    public String display() {
+
+        String radiusString = "Radius of Circle: " + this.radius;
+        String areaString = "Area of Circle: " + this.area();
+        String circumferenceString = "Circumference of Circle: " + this.perimeter();
+        String completeString = radiusString + "\n" + areaString + "\n" + circumferenceString;
+
+        logger.info(radiusString);
+        logger.info(areaString);
+        logger.info(circumferenceString);
+        return completeString;
     }
 }

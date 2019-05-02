@@ -1,4 +1,4 @@
-package com.ebricks;
+package com.ebricks.task1;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonGetter;
@@ -29,10 +29,19 @@ public class Rectangle extends Shape {
         return 2.0 * (this.width + this.length);
     }
 
-    public void display() {
-        logger.info("Length of Rectangle.log: " + this.length);
-        logger.info("Width of Rectangle.log: " + this.width);
-        logger.info("Area of Rectangle.log: " + this.area());
-        logger.info("perimeter of Rectangle.log: " + this.perimeter());
+    public String display() {
+
+        String rectangleString = "Length of Rectangle: " + this.length;
+        String widthString = "Width of Rectangle: " + this.width;
+        String areaString = "Area of Rectangle: " + this.area();
+        String perimeterString = "Perimeter of Rectangle: " + this.perimeter();
+        String completeString = rectangleString + "\n" + widthString + "\n" + areaString + "\n" + perimeterString;
+
+        logger.info(rectangleString);
+        logger.info(widthString);
+        logger.info(areaString);
+        logger.info(perimeterString);
+
+        return completeString;
     }
 }
