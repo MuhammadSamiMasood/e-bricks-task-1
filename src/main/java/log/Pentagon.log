@@ -1,4 +1,0 @@
-[2019-05-02T08:20:40,270][INFO][pool-2-thread-1][com.ebricks.task1.Rectangle][display][40][Length of Rectangle: 20.0]
-[2019-05-02T08:20:40,270][INFO][pool-2-thread-1][com.ebricks.task1.Rectangle][display][41][Width of Rectangle: 25.0]
-[2019-05-02T08:20:40,270][INFO][pool-2-thread-1][com.ebricks.task1.Rectangle][display][42][Area of Rectangle: 500.0]
-[2019-05-02T08:20:40,270][INFO][pool-2-thread-1][com.ebricks.task1.Rectangle][display][43][Perimeter of Rectangle: 90.0]
