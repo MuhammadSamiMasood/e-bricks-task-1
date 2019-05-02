@@ -9,42 +9,42 @@
         </Console>
 
         <File name="circleAppender"
-              fileName="C:\Users\Mesmer\IdeaProjects\Task1_JsonMapping\src\main\java\log\Circle.log">
+              fileName="src\main\java\log\Circle.log">
             <PatternLayout>
-                <pattern>[%d{dd MMM yyyy :: HH:mm:ss,SSS}][%p][%t][%C][%M][%L][%m]%n</pattern>
+                <pattern>[%d{ISO8601}][%p][%t][%C][%M][%L][%m]%n</pattern>
             </PatternLayout>
 
         </File>
         <File name="pentagonAppender"
-              fileName="C:\Users\Mesmer\IdeaProjects\Task1_JsonMapping\src\main\java\log\Pentagon.log">
+              fileName="src\main\java\log\Pentagon.log">
             <PatternLayout>
-                <Pattern>[%d{dd MMM yyyy :: HH:mm:ss,SSS}][%p][%t][%C][%M][%L][%m]%n</Pattern>
+                <Pattern>[%d{ISO8601}][%p][%t][%C][%M][%L][%m]%n</Pattern>
             </PatternLayout>
         </File>
         <File name="rectangleAppender"
-              fileName="C:\Users\Mesmer\IdeaProjects\Task1_JsonMapping\src\main\java\log\Rectangle.log">
+              fileName="src\main\java\log\Rectangle.log">
             <PatternLayout>
-                <Pattern>[%d{dd MMM yyyy :: HH:mm:ss,SSS}][%p][%t][%C][%M][%L][%m]%n</Pattern>
+                <Pattern>[%d{ISO8601}][%p][%t][%C][%M][%L][%m]%n</Pattern>
             </PatternLayout>
         </File>
 
 
     </Appenders>
     <Loggers>
-        <Root level="warn" additivity="false">
+        <Root level="info" additivity="false">
             <AppenderRef ref="console"/>
         </Root>
 
 
-        <Logger name="com.ebricks.Circle" level="info" additivity="false">
+        <Logger name="com.ebricks.task1.Circle" level="info" additivity="false">
 
             <AppenderRef ref="circleAppender"/>
         </Logger>
-        <Logger name="com.ebricks.Rectangle" level="info" additivity="false">
+        <Logger name="com.ebricks.task1.Rectangle" level="info" additivity="false">
 
             <AppenderRef ref="pentagonAppender"/>
         </Logger>
-        <Logger name="com.ebricks.Pentagon" level="info" additivity="false">
+        <Logger name="com.ebricks.task1.Pentagon" level="info" additivity="false">
 
             <AppenderRef ref="rectangleAppender"/>
         </Logger>
