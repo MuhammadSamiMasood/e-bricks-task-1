@@ -1,16 +1,16 @@
 {
   "shapes": [
     {
-      "@class": "Circle",
+      "@class": "com.ebricks.Circle",
       "radius": 5
     },
     {
-      "@class": "Pentagon",
+      "@class": "com.ebricks.Pentagon",
       "apothem": 3,
       "side": 2
     },
     {
-      "@class": "Rectangle",
+      "@class": "com.ebricks.Rectangle",
       "length": 20.0,
       "width": 25.0
     }

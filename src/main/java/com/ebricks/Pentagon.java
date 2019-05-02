@@ -1,3 +1,5 @@
+package com.ebricks;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -5,7 +7,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class Pentagon extends Shape {
-    private Logger logger = LogManager.getLogger(Pentagon.class);
+
+    public static Logger logger = LogManager.getLogger(Pentagon.class);
+
     private double apothem;
     private double side;
 
@@ -26,7 +30,7 @@ public class Pentagon extends Shape {
     }
 
     public void display() {
-        logger.debug("Apothem of the Pentagon: " + this.apothem);
+        logger.info("Apothem of the Pentagon: " + this.apothem);
         logger.info("One side of the Pentagon: " + this.side);
         logger.info("Area of the Pentagon: " + this.area());
         logger.info("Perimeter of the Pentagon: " + this.perimeter());
