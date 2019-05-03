@@ -34,7 +34,7 @@ public class Rectangle extends Shape {
         return this;
     }
 
-
+    @Override
     public String toString() {
         String rectangleString = "Length of Rectangle: " + this.length;
         String widthString = "Width of Rectangle: " + this.width;

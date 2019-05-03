@@ -34,6 +34,7 @@ public class Circle extends Shape {
         return this;
     }
 
+    @Override
     public String toString(){
         String radiusString = "Radius of Circle: " + this.radius;
         String areaString = "Area of Circle: " + this.area();

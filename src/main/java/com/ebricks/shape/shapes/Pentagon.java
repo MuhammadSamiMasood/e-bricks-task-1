@@ -34,7 +34,8 @@ public class Pentagon extends Shape {
         return this;
     }
 
-    public String toString(){
+    @Override
+    public String toString() {
         String apothemString = "Apothem of the Pentagon: " + this.apothem;
         String sideString = "One side of the Pentagon: " + this.side;
         String areaString = "Area of the Pentagon: " + this.area();
