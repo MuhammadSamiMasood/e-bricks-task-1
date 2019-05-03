@@ -35,15 +35,15 @@
         </Root>
 
 
-        <Logger name="com.ebricks.shape.shapes.Circle" level="info" additivity="false">
+        <Logger name="com.ebricks.shape.model.Circle" level="info" additivity="false">
 
             <AppenderRef ref="circleAppender"/>
         </Logger>
-        <Logger name="com.ebricks.shape.shapes.Rectangle" level="info" additivity="false">
+        <Logger name="com.ebricks.shape.model.Rectangle" level="info" additivity="false">
 
             <AppenderRef ref="pentagonAppender"/>
         </Logger>
-        <Logger name="com.ebricks.shape.shapes.Pentagon" level="info" additivity="false">
+        <Logger name="com.ebricks.shape.model.Pentagon" level="info" additivity="false">
 
             <AppenderRef ref="rectangleAppender"/>
         </Logger>
