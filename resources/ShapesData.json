@@ -1,16 +1,16 @@
 {
   "shapes": [
     {
-      "@type": "circle",
+      "type": "circle",
       "radius": 5
     },
     {
-      "@type": "Pentagon",
+      "type": "Pentagon",
       "apothem": 3,
       "side": 2
     },
     {
-      "@type": "rectangle",
+      "type": "rectangle",
       "length": 20.0,
       "width": 25.0
     }
