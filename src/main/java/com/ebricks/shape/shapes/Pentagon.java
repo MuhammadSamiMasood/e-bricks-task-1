@@ -1,4 +1,4 @@
-package com.ebricks.task1;
+package com.ebricks.shape.shapes;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonGetter;
@@ -29,18 +29,17 @@ public class Pentagon extends Shape {
         return 5.0 * this.side;
     }
 
-    public String display() {
+    public Shape display() {
+        logger.info(this);
+        return this;
+    }
 
+    public String toString(){
         String apothemString = "Apothem of the Pentagon: " + this.apothem;
         String sideString = "One side of the Pentagon: " + this.side;
         String areaString = "Area of the Pentagon: " + this.area();
         String perimeterString = "Perimeter of the Pentagon: " + this.perimeter();
         String completeString = apothemString + "\n" + sideString + "\n" + areaString + "\n" + perimeterString;
-
-        logger.info(apothemString);
-        logger.info(sideString);
-        logger.info(areaString);
-        logger.info(perimeterString);
         return completeString;
     }
 }

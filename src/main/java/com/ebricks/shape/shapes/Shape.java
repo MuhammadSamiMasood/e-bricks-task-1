@@ -1,4 +1,4 @@
-package com.ebricks.task1;
+package com.ebricks.shape.shapes;
 
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
@@ -9,5 +9,5 @@ public abstract class Shape {
 
     public abstract double perimeter();
 
-    public abstract String display();
+    public abstract Shape display();
 }

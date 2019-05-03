@@ -13,7 +13,6 @@
             <PatternLayout>
                 <pattern>[%d{ISO8601}][%p][%t][%C][%M][%L][%m]%n</pattern>
             </PatternLayout>
-
         </File>
         <File name="pentagonAppender"
               fileName="src\main\java\log\Pentagon.log">
@@ -36,15 +35,15 @@
         </Root>
 
 
-        <Logger name="com.ebricks.task1.Circle" level="info" additivity="false">
+        <Logger name="com.ebricks.shape.shapes.Circle" level="info" additivity="false">
 
             <AppenderRef ref="circleAppender"/>
         </Logger>
-        <Logger name="com.ebricks.task1.Rectangle" level="info" additivity="false">
+        <Logger name="com.ebricks.shape.shapes.Rectangle" level="info" additivity="false">
 
             <AppenderRef ref="pentagonAppender"/>
         </Logger>
-        <Logger name="com.ebricks.task1.Pentagon" level="info" additivity="false">
+        <Logger name="com.ebricks.shape.shapes.Pentagon" level="info" additivity="false">
 
             <AppenderRef ref="rectangleAppender"/>
         </Logger>

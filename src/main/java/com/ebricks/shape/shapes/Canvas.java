@@ -1,4 +1,6 @@
-package com.ebricks.task1;
+package com.ebricks.shape.shapes;
+
+import com.ebricks.shape.shapes.Shape;
 
 import java.util.ArrayList;
 import java.util.List;
