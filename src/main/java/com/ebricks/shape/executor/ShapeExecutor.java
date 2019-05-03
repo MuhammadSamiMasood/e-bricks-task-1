@@ -1,7 +1,7 @@
 package com.ebricks.shape.executor;
 
 
-import com.ebricks.shape.shapes.Shape;
+import com.ebricks.shape.model.Shape;
 
 import java.util.concurrent.Callable;
 

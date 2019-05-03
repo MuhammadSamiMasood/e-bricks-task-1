@@ -1,10 +1,11 @@
-package com.ebricks.shape.shapes;
+package com.ebricks.shape.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
 
 public class Pentagon extends Shape {
 

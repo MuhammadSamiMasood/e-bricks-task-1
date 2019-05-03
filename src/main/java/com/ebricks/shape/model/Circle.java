@@ -1,12 +1,13 @@
-package com.ebricks.shape.shapes;
+package com.ebricks.shape.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-
+@JsonTypeName("circle")
 public class Circle extends Shape {
 
     public static Logger logger = LogManager.getLogger(Circle.class.getName());

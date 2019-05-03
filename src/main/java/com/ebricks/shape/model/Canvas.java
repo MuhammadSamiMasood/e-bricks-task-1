@@ -1,6 +1,4 @@
-package com.ebricks.shape.shapes;
-
-import com.ebricks.shape.shapes.Shape;
+package com.ebricks.shape.model;
 
 import java.util.ArrayList;
 import java.util.List;
