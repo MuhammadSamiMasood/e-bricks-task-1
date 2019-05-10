@@ -17,14 +17,22 @@ public class Rectangle extends Shape {
         this.length = l;
     }
 
-    @JsonGetter
     public double area() {
         return this.width * this.length;
     }
 
-    @JsonGetter
     public double perimeter() {
         return 2.0 * (this.width + this.length);
+    }
+
+    @JsonGetter
+    public double getLength() {
+        return length;
+    }
+
+    @JsonGetter
+    public double getWidth() {
+        return width;
     }
 
     public Shape display() {

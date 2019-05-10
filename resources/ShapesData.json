@@ -2,17 +2,17 @@
   "shapes": [
     {
       "type": "circle",
-      "radius": 5
+      "radius": 5.0
     },
     {
       "type": "Pentagon",
-      "apothem": 3,
-      "side": 2
+      "apothem": 3.0,
+      "side": 2.0
     },
     {
       "type": "rectangle",
-      "length": 20.0,
-      "width": 25.0
+      "width": 25.0,
+      "length": 20.0
     }
   ]
 }

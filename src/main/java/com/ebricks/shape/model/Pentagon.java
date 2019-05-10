@@ -20,14 +20,22 @@ public class Pentagon extends Shape {
         this.side = s;
     }
 
-    @JsonGetter
     public double area() {
         return 5.0 * 0.5 * this.apothem * this.side;
     }
 
-    @JsonGetter
     public double perimeter() {
         return 5.0 * this.side;
+    }
+
+    @JsonGetter
+    public double getApothem() {
+        return apothem;
+    }
+
+    @JsonGetter
+    public double getSide() {
+        return side;
     }
 
     public Shape display() {
