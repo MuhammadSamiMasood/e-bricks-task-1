@@ -3,20 +3,11 @@ package com.ebricks.shape.executor;
 
 import com.ebricks.shape.model.Shape;
 
-import java.util.concurrent.Callable;
 
-public class ShapeExecutor implements Callable<Shape> {
+public abstract class ShapeExecutor {
 
-    private Shape shape;
+    protected Shape shape;
 
-    public ShapeExecutor(Shape s) {
-        this.shape = s;
-    }
-
-    public Shape call() throws Exception {
-
-        Shape s = shape.display();
-        return s;
-    }
+    public abstract ShapeExecutorResponse execute();
 }
 

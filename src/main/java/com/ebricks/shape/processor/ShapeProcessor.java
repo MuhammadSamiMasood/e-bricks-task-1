@@ -1,5 +1,7 @@
 package com.ebricks.shape.processor;
 
+import com.ebricks.shape.executor.ExecutorFactory;
+import com.ebricks.shape.executor.ShapeExecutorResponse;
 import com.ebricks.shape.model.Canvas;
 import com.ebricks.shape.executor.ShapeExecutor;
 import com.ebricks.shape.model.Circle;
@@ -14,17 +16,18 @@ import java.util.concurrent.*;
 
 public class ShapeProcessor {
 
-    public static Logger logger = LogManager.getRootLogger();
-    private ObjectMapper objectMapper = null;
-    private Canvas canvasReader = null;
-    private ExecutorService service = null;
-    List<Future> futures = null;
-    String shapesJson = "";
+    public static Logger logger = LogManager.getLogger(ShapeProcessor.class);
+    private ObjectMapper objectMapper;
+    private Canvas canvasReader;
+    private ExecutorService service;
+    List<Future<ShapeExecutorResponse>> shapeExecutorsResponseFutures;
+
     String shapeJsonToPost;
     ShapeService shapeService = new ShapeService();
 
     public void init() throws IOException {
 
+        String shapesJson;
         shapesJson = (String)shapeService.get();
 
         objectMapper = new ObjectMapper();
@@ -32,19 +35,27 @@ public class ShapeProcessor {
 
         service = Executors.newFixedThreadPool(2);
 
-        futures = new ArrayList<Future>();
+        shapeExecutorsResponseFutures = new ArrayList<Future<ShapeExecutorResponse>>();
     }
 
     public void process() throws ExecutionException, InterruptedException, IOException {
 
+        ExecutorFactory executorFactory = new ExecutorFactory();
+
         for (Shape shape : canvasReader.getShapes()) {
-            ShapeExecutor shapeExecutor = new ShapeExecutor(shape);
-            futures.add(service.submit(shapeExecutor));
+            final ShapeExecutor shapeExecutor = executorFactory.getShapeExecutor(shape);
+            shapeExecutorsResponseFutures.add(service.submit(new Callable<ShapeExecutorResponse>() {
+                @Override
+                public ShapeExecutorResponse call() {
+                    return shapeExecutor.execute();
+                }
+            }));
         }
 
-        for (Future<Shape> future : futures) {
-            Shape shape = future.get();
-            logger.info(shape);
+        for (Future<ShapeExecutorResponse> future : shapeExecutorsResponseFutures) {
+            ShapeExecutorResponse shapeExecutorResponse = (ShapeExecutorResponse)future.get();
+            logger.info(shapeExecutorResponse.getMessage());
+            logger.info(shapeExecutorResponse.getShape());
         }
 
         Shape randomShape = new Circle(50.4);
