@@ -1,4 +1,4 @@
-package com.ebricks.task1;
+package com.ebricks.shape.model;
 
 import java.util.ArrayList;
 import java.util.List;

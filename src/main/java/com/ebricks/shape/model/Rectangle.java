@@ -1,8 +1,6 @@
-package com.ebricks.task1;
+package com.ebricks.shape.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonGetter;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -19,29 +17,36 @@ public class Rectangle extends Shape {
         this.length = l;
     }
 
-    @JsonGetter
     public double area() {
         return this.width * this.length;
     }
 
-    @JsonGetter
     public double perimeter() {
         return 2.0 * (this.width + this.length);
     }
 
-    public String display() {
+    @JsonGetter
+    public double getLength() {
+        return length;
+    }
 
+    @JsonGetter
+    public double getWidth() {
+        return width;
+    }
+
+    public Shape display() {
+        logger.info(this);
+        return this;
+    }
+
+    @Override
+    public String toString() {
         String rectangleString = "Length of Rectangle: " + this.length;
         String widthString = "Width of Rectangle: " + this.width;
         String areaString = "Area of Rectangle: " + this.area();
         String perimeterString = "Perimeter of Rectangle: " + this.perimeter();
         String completeString = rectangleString + "\n" + widthString + "\n" + areaString + "\n" + perimeterString;
-
-        logger.info(rectangleString);
-        logger.info(widthString);
-        logger.info(areaString);
-        logger.info(perimeterString);
-
         return completeString;
     }
 }
