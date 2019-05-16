@@ -15,16 +15,12 @@ import java.io.*;
 
 public class ShapeService {
 
-    public static Logger logger = LogManager.getRootLogger();
-    ObjectMapper objectMapper = new ObjectMapper();
-    ShapeConfig shapesConfig = ShapeConfig.getInstance();
+    public static Logger logger = LogManager.getLogger(ShapeService.class);
 
     public Object get() throws IOException {
 
-        shapesConfig = (ShapeConfig) objectMapper.readValue(new File("resources/config.json"), ShapeConfig.class);
-
         CloseableHttpClient closeableHttpClient = HttpClients.createDefault();
-        HttpGet httpGet = new HttpGet(shapesConfig.shapeServiceUrl);
+        HttpGet httpGet = new HttpGet(ShapeConfig.getInstance().getShapeServiceUrl());
         CloseableHttpResponse closeableHttpResponse = closeableHttpClient.execute(httpGet);
 
         InputStream inputStream = closeableHttpResponse.getEntity().getContent();
@@ -34,10 +30,8 @@ public class ShapeService {
 
     public Object post(String shapeJson) throws IOException{
 
-        shapesConfig = (ShapeConfig) objectMapper.readValue(new File("resources/config.json"), ShapeConfig.class);
-
         CloseableHttpClient closeableHttpClient = HttpClients.createDefault();
-        HttpPost httpPost = new HttpPost(shapesConfig.shapeServiceUrl);
+        HttpPost httpPost = new HttpPost(ShapeConfig.getInstance().getShapeServiceUrl());
 
         StringEntity entity = new StringEntity(shapeJson);
         httpPost.setEntity(entity);
