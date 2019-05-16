@@ -1,9 +1,6 @@
 package com.ebricks.shape.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonGetter;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -13,6 +10,7 @@ public class Circle extends Shape {
     public static Logger logger = LogManager.getLogger(Circle.class.getName());
 
     private final double PI = 3.1416;
+
     private double radius;
 
     @JsonCreator
@@ -20,14 +18,17 @@ public class Circle extends Shape {
         this.radius = r;
     }
 
-    @JsonGetter
     public double area() {
         return PI * this.radius * this.radius;
     }
 
-    @JsonGetter
     public double perimeter() {
         return 2 * PI * this.radius;
+    }
+
+    @JsonGetter
+    public double getRadius() {
+        return radius;
     }
 
     public Shape display() {
@@ -36,7 +37,7 @@ public class Circle extends Shape {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         String radiusString = "Radius of Circle: " + this.radius;
         String areaString = "Area of Circle: " + this.area();
         String circumferenceString = "Circumference of Circle: " + this.perimeter();
